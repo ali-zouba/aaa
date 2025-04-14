@@ -1,0 +1,72 @@
+[
+    {
+      "id": "1",
+      "name": "Classic Men's T-shirt",
+      "image": "image/t-shirt1.jpg",
+      "price": 45,
+      "description": "High-quality cotton T-shirt with comfortable fit"
+    },
+    {
+      "id": "2",
+      "name": "Women's Designer Tee",
+      "image": "image/t-shirt2.jpg",
+      "price": 39,
+      "description": "Stylish and comfortable designer t-shirt for women"
+    },
+    {
+      "id": "3",
+      "name": "Men's Casual Polo",
+      "image": "image/h1.jpg",
+      "price": 55,
+      "description": "Elegant polo shirt perfect for casual and semi-formal occasions"
+    },
+    {
+      "id": "4",
+      "name": "Women's Summer Blouse",
+      "image": "image/h2.jpg",
+      "price": 42,
+      "description": "Light and breathable summer blouse with elegant design"
+    },
+    {
+      "id": "5",
+      "name": "Men's Sport T-shirt",
+      "image": "image/t-shirt3.jpg",
+      "price": 35,
+      "description": "Performance sport t-shirt with moisture-wicking technology"
+    },
+    {
+      "id": "6",
+      "name": "Graphic Print Tee",
+      "image": "image/t-shirt4.jpg",
+      "price": 38,
+      "description": "Unique graphic print t-shirt with artistic design"
+    },
+    {
+      "id": "7",
+      "name": "Men's Formal Shirt",
+      "image": "image/h3.jpg",
+      "price": 65,
+      "description": "Premium quality formal shirt for professional settings"
+    },
+    {
+      "id": "8",
+      "name": "Women's Casual Top",
+      "image": "image/o1.jpg",
+      "price": 47,
+      "description": "Stylish casual top perfect for everyday wear"
+    },
+    {
+      "id": "9",
+      "name": "Kids Fun T-shirt",
+      "image": "image/l1.jpg",
+      "price": 29,
+      "description": "Colorful and fun t-shirt designed for children"
+    },
+    {
+      "id": "10",
+      "name": "Premium Cotton Shirt",
+      "image": "image/h1.jpg",
+      "price": 59,
+      "description": "Premium 100% cotton shirt with exceptional comfort and durability"
+    }
+  ]

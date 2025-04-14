@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="com.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" 
+    integrity="sha512-+BeZkDsaQKPsKMNJOTOFLEIGcCiK4A7cYhpN+AOQhKUhzb9O6B4yqVRUs4lqtFG/wBVxpVz9RPjYevWGpBK1Pg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+   <nav>
+    <div class="logo">buyos</div>
+    
+    <ul>
+        <li><a href="#">acceuil</a></li>
+        <li><a href="#">produits</a></li>
+        <li><a href="#">à propos</a></li>
+        <li><a href="#">contact</a></li>
+        <i class="fas fa-shopping-cart"></i>
+    </ul>
+    <div class="nav-search">
+        <div class="nav-search__el">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Recheche" class="searchIput" />
+        </div>
+      </div>
+</nav> 
+   
+<div class="flex-box">
+    <div class="row">
+        <div class="left">
+            <div class="big-img">
+                 <img src="image/t-shirt1.jpg">
+            </div>
+            <div class="images"> 
+                <div class="small-img">
+                   <img src="image/t-shirt1.jpg" onclick="showimag(this.src)">
+                </div>
+                <div class="small-img">
+                    <img src="image/t-shirt2.jpg" onclick="showimag(this.src)">
+                </div>
+                <div class="small-img">
+                    <img src="image/t-shirt3.jpg" onclick="showimag(this.src)">
+                </div> 
+                <div class="small-img">
+                    <img src="image/t-shirt4.jpg" onclick="showimag(this.src)">
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="url">Home > product > </div>
+            <div class="pname">T-shirt for man</div>
+            <div class="ratings">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="price">$40</div>
+            <div class="flex">
+                <div class="input-box">
+                    <select class="size" name="size">
+                        <option value="" disabled selected>Select Size</option>
+                        <option value="1">S</option>
+                        <option value="2">M</option>
+                        <option value="3">L</option>
+                        <option value="3">XL</option>
+                        <option value="3">XXL</option>
+                        <option value="3">XXXL</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span>Quantite :</span>
+                    <input type="number" placeholder="1" min="1" max="10" id="">
+                </div> 
+            </div>
+            <div class="btn-box">
+                <button type="submit" class="cart-btn">Add to cart</button>
+                <button type="submit" class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2>Produits similaires</h2>
+<div class="list-produit">
+    <!-- Product cards will be added dynamically here -->
+</div>
+
+<script>
+   // Function to show the selected image in the big image container
+   let bigImg = document.querySelector('.big-img img');
+   function showimag(pic){
+       bigImg.src = pic;
+   }
+
+   // Load products data
+   let products = null;
+   
+   // Get data from file json
+   fetch('detail-producy.json')
+       .then(response => response.json())
+       .then(data => {
+           products = data;
+           populateProductList();
+       })
+       .catch(error => {
+           console.error('Error loading products:', error);
+       });
+
+   // Function to populate the similar products list
+   function populateProductList() {
+       let listProduct = document.querySelector('.list-produit');
+       listProduct.innerHTML = ''; // Clear existing content
+
+       if(products && products.length > 0) {
+           products.forEach(product => {
+               let productCard = document.createElement('div');
+               productCard.classList.add('card');
+               productCard.innerHTML = `
+                   <img src="${product.image}" alt="${product.name}">
+                   <h3>${product.name}</h3>
+                   <p>$${product.price}</p>
+                   <button class="buy-button" data-id="${product.id}">Acheter</button>
+               `;
+               listProduct.appendChild(productCard);
+           });
+
+           // Add event listeners to all buy buttons
+           document.querySelectorAll('.buy-button').forEach(button => {
+               button.addEventListener('click', function() {
+                   const productId = this.getAttribute('data-id');
+                   window.location.href = `detail.html?id=${productId}`;
+               });
+           });
+       }
+   }
+</script>
+</body>
+</html>
